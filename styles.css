@@ -5,11 +5,20 @@ body {
   font-size: 12px;
 }
 
-form {
+h1 {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  background-color: #fff;
   display: flex;
   flex-direction: column;
   width: 400px;
   align-content: center;
+  margin: 20px auto;
+  padding: 15px;
+  border-radius: 15px;
 }
 
 .form-section {
@@ -41,22 +50,49 @@ form {
 
 input[type="text"] {
   width: 100%;
-  padding: 3px 20px;
+  padding: 3px 5px;
   margin: 8px 0;
   box-sizing: border-box;
+  border: 1px solid #c5c5c5;
 }
-select {
+
+.custom-select select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 100%;
-  padding: 3px 20px;
+  padding: 3px 5px;
   margin: 8px 0;
-  box-sizing: border-box;
+  background-color: #fff;
+  border: 1px solid #c5c5c5;
+  border-radius: 0;
+  color: #000;
+  cursor: pointer;
+}
+
+.custom-select {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.custom-select::after {
+  content: "▾";
+  font-size: 0.8rem;
+  color: #5a5959;
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 input[type="email"] {
   width: 100%;
-  padding: 3px 20px;
+  padding: 3px 5px;
   margin: 8px 0;
   box-sizing: border-box;
+  border: 1px solid #c5c5c5;
 }
 
 input[type="submit"] {
@@ -71,10 +107,16 @@ input[type="submit"] {
   margin: 4px 0;
   cursor: pointer;
   border-radius: 20px;
+  border: 1px solid #c5c5c5;
 }
 
 .form-section.form-button {
   display: flex;
   justify-content: center;
   margin: 20px 0;
+}
+
+#message {
+  margin: 8px 0;
+  border: 1px solid #c5c5c5;
 }
