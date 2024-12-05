@@ -5,6 +5,10 @@ body {
   font-size: 12px;
 }
 
+sup {
+  color: red;
+}
+
 h1 {
   display: flex;
   justify-content: center;
