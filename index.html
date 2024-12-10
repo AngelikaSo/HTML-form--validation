@@ -1,5 +1,3 @@
-<!--contact form, booking something,login, upload file/image and send email-->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,21 +7,21 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="form">
-      <h1>Contact us!</h1>
-      <form>
-        <div class="form-section form-identity">
-          <div class="form-field form-field-first-name">
+    <div class="form-container">
+      <h1>Login / Contact us</h1>
+      <form id="form">
+        <div class="form-section form-section--identity">
+          <div class="form-field">
             <label for="fname">First Name<sup>*</sup></label>
-            <input type="text" id="fname" name="fname" />
+            <input type="text" id="fname" name="fname" required />
           </div>
-          <div class="form-field form-field-last-name">
+          <div class="form-field">
             <label for="fname">Last Name<sup>*</sup></label>
-            <input type="text" id="lname" name="lname" />
+            <input type="text" id="lname" name="lname" required />
           </div>
         </div>
-        <div class="form-section form-gender">
-          <div class="form-field form-field-gender">
+        <div class="form-section form-section--gender">
+          <div class="form-field form-field--gender">
             <label for="female">
               <input
                 type="radio"
@@ -35,7 +33,7 @@
               Female</label
             ><br />
           </div>
-          <div class="form-field form-field-gender">
+          <div class="form-field form-field--gender">
             <label for="male">
               <input type="radio" id="male" name="gender" value="male" />
               Male</label
@@ -43,7 +41,7 @@
           </div>
         </div>
         <br />
-        <div class="form-section form-contact">
+        <div class="form-section form-section--contact">
           <label for="referral-source">How did you hear about us?</label>
           <div class="custom-select">
             <select id="referral-source" name="referral-source">
@@ -55,14 +53,22 @@
           </div>
           <br />
           <label for="email">Address Email<sup>*</sup></label>
-          <input type="email" id="email" name="email" /><br />
+          <input type="email" id="email" name="email" required /><br />
           <label for="message">Message</label>
           <textarea type="message" id="message" name="message"></textarea>
+
+          <div class="form-section form-section--login">
+            <label for="username">User Name<sup>*</sup></label>
+            <input type="text" id="username" name="username" required /><br />
+            <label for="password">Password<sup>*</sup></label>
+            <input type="text" id="password" name="password" required />
+          </div>
         </div>
         <div class="form-section form-button">
           <input type="submit" value="Submit" />
         </div>
       </form>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>

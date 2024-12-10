@@ -14,7 +14,7 @@ h1 {
   justify-content: center;
 }
 
-.form {
+.form-container {
   background-color: #fff;
   display: flex;
   flex-direction: column;
@@ -25,30 +25,29 @@ h1 {
   border-radius: 15px;
 }
 
-.form-section {
+.form-section,
+.form-field,
+.form-field.form-field--gender,
+.form-section.form-section--gender,
+.form-section.form-section--contact,
+.form-section.form-section--login {
   display: flex;
-  flex-direction: row;
-  margin: 5px;
 }
 
+.form-section,
 .form-field {
-  display: flex;
-  flex-direction: column;
   margin: 5px;
 }
 
-.form-section.form-gender {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-field.form-field-gender {
-  display: flex;
+.form-section,
+.form-field.form-field--gender {
   flex-direction: row;
 }
 
-.form-section.form-contact {
-  display: flex;
+.form-field,
+.form-section.form-section--gender,
+.form-section.form-section--contact,
+.form-section.form-section--login {
   flex-direction: column;
 }
 
