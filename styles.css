@@ -14,6 +14,10 @@ h1 {
   justify-content: center;
 }
 
+span {
+  height: 10px;
+}
+
 .form-container {
   background-color: #fff;
   display: flex;
@@ -27,8 +31,6 @@ h1 {
 
 .form-section,
 .form-field,
-.form-field.form-field--gender,
-.form-section.form-section--gender,
 .form-section.form-section--contact,
 .form-section.form-section--login {
   display: flex;
@@ -39,13 +41,7 @@ h1 {
   margin: 5px;
 }
 
-.form-section,
-.form-field.form-field--gender {
-  flex-direction: row;
-}
-
 .form-field,
-.form-section.form-section--gender,
 .form-section.form-section--contact,
 .form-section.form-section--login {
   flex-direction: column;
@@ -122,4 +118,8 @@ input[type="submit"] {
 #message {
   margin: 8px 0;
   border: 1px solid #c5c5c5;
+}
+
+.validation-error {
+  color: red;
 }
