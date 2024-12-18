@@ -1,73 +1,25 @@
+import handleData from "./handle-data.js";
+
 const form = document.getElementById("form");
-const feilds = [
-  {
-    element: document.getElementById("username"),
-    errorElement: document.getElementById("username-error"),
-    required: true,
-  },
-  {
-    element: document.getElementById("password"),
-    errorElement: document.getElementById("password-error"),
-    required: true,
-  },
-  {
-    element: document.getElementById("fname"),
-    required: false,
-  },
-  {
-    element: document.getElementById("lname"),
-    required: false,
-  },
-  {
-    element: document.getElementById("email"),
-    errorElement: document.getElementById("email-error"),
-    required: true,
-  },
-  {
-    element: document.getElementById("referral-source"),
-    required: false,
-  },
-  {
-    element: document.getElementById("message"),
-    required: false,
-  },
-];
+const errorElements = document.getElementsByClassName("validation-error");
+
+const fields = Array.from(form.elements).map((input, index) => ({
+  id: input.id,
+  name: input.name,
+  label: input.label,
+  type: input.type,
+  input: input,
+  errorElement: errorElements[index] || null,
+  required: input.title !== "",
+}));
 
 form.addEventListener("submit", (event) => {
-  let isValid = true;
+  console.log("Form submitted!");
+  event.preventDefault();
 
-  //Clean up previous errors first
-  feilds.forEach((feild) => {
-    if (feild.errorElement) {
-      feild.errorElement.innerHTML = "";
-      feild.element.style.border = "";
-    }
-  });
-
-  // Validate content
-  feilds.forEach((feild) => {
-    if (
-      feild.required &&
-      (!feild.element.value || feild.element.value.trim() === "")
-    ) {
-      event.preventDefault();
-      isValid = false;
-
-      if (feild.errorElement) {
-        feild.errorElement.innerHTML = `${feild.element.id} is required.`;
-        feild.element.style.border = "1px solid red";
-      }
-    }
-  });
+  let isValid = handleData(fields);
 
   if (isValid) {
-    const data = {};
-    feilds.forEach((feild) => {
-      data[feild.element.id] = feild.element.value;
-    });
-
-    localStorage.setItem("userDetails", JSON.stringify(data));
+    form.reset();
   }
-
-  form.reset();
 });

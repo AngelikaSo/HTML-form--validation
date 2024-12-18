@@ -16,7 +16,7 @@
             <input type="text" id="fname" name="fname" />
           </div>
           <div class="form-field">
-            <label for="fname">Last Name</label>
+            <label for="lname">Last Name</label>
             <input type="text" id="lname" name="lname" />
           </div>
         </div>
@@ -33,9 +33,9 @@
           </div>
           <br />
           <label for="email">Address Email<sup>*</sup></label>
-          <input type="email" id="email" name="email" /><span
+          <input type="email" id="email" name="email" title="test" /><span
             class="validation-error"
-            id="email-error"
+            id="error-email"
           ></span
           ><br />
           <label for="message">Message</label>
@@ -49,7 +49,7 @@
               name="username"
               minlength="5"
               title="Username must be at least 5 characters"
-            /><span class="validation-error" id="username-error"></span><br />
+            /><span class="validation-error"></span><br />
             <label for="password">Password<sup>*</sup></label>
             <input
               type="password"
@@ -58,7 +58,7 @@
               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
               title="Must contain at
             least one number, one uppercase and lowercase letter, and at least 8 characters"
-            /><span class="validation-error" id="password-error"></span>
+            /><span class="validation-error"></span>
           </div>
         </div>
         <div class="form-section form-button">
@@ -66,6 +66,6 @@
         </div>
       </form>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
   </body>
 </html>
