@@ -1,25 +1,26 @@
-import handleData from "./handle-data.js";
+import { validateFields, saveDataToLocalStorage } from "./processData.js";
 
 const form = document.getElementById("form");
-const errorElements = document.getElementsByClassName("validation-error");
 
-const fields = Array.from(form.elements).map((input, index) => ({
-  id: input.id,
-  name: input.name,
-  label: input.label,
-  type: input.type,
-  input: input,
-  errorElement: errorElements[index] || null,
-  required: input.title !== "",
-}));
+const fields = Array.from(form.elements)
+  .filter((element) => element.type !== "submit")
+  .map((element) => {
+    const isRequired = element.classList.contains("required");
+    const errorElementId = element.getAttribute("data-error-id");
+    return {
+      element: element,
+      errorElement: errorElementId
+        ? document.getElementById(errorElementId)
+        : null,
+      required: isRequired,
+    };
+  });
 
 form.addEventListener("submit", (event) => {
-  console.log("Form submitted!");
   event.preventDefault();
-
-  let isValid = handleData(fields);
-
+  const isValid = validateFields(...fields);
   if (isValid) {
+    saveDataToLocalStorage(...fields);
     form.reset();
   }
 });
